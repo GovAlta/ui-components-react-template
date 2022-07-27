@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@abgov/styles": "^1.0.0-alpha.15",
-    "@abgov/web-components": "^1.0.0-alpha.76",
-    "@abgov/react-components": "^4.0.0-alpha.18",
+    "@abgov/web-components": "^1.0.0-alpha.78",
+    "@abgov/react-components": "^4.0.0-alpha.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"
