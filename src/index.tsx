@@ -1,16 +1,16 @@
-import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom';
-
+import React from 'react';
+import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import App from './App';
 
-
-import '@abgov/styles';
 import { WorkExperienceRoute } from './routes/work-experience';
 import { HomeRoute } from './routes/home';
+import App from './App';
 
-ReactDOM.render(
-  <StrictMode>
+import './App.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+root.render(
+  <React.StrictMode>
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
@@ -19,6 +19,5 @@ ReactDOM.render(
         </Route>
       </Routes>
     </Router>
-  </StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>,
 );
