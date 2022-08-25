@@ -10,12 +10,11 @@ import {
 import { Outlet } from 'react-router-dom';
 
 export function App() {
-
   return (
     <GoAPage>
       <section slot="header">
         <GoAMicrositeHeader level="alpha" version="UAT" />
-        <GoAAppHeader url="/" title="Design System">
+        <GoAAppHeader url="/" heading="Design System">
           <a href="/login">Sign in</a>
         </GoAAppHeader>
       </section>
@@ -26,7 +25,7 @@ export function App() {
 
       <section slot="footer">
         <GoAAppFooter>
-          <GoAAppFooterNavSection name="Links" columnCount={2}>
+          <GoAAppFooterNavSection name="Links" maxColumnCount={2}>
             <a href="a.html">Arts and culture</a>
             <a href="b.html">Education and training</a>
             <a href="c.html">Family and social supports</a>

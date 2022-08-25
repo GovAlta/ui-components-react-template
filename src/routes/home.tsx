@@ -1,6 +1,5 @@
 import { GoABadge, GoAButton, GoAContainer, GoADivider, GoAFlexRow } from '@abgov/react-components'
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const HomeRoute = () => {
 
@@ -18,7 +17,7 @@ export const HomeRoute = () => {
           This project is a showcase of the design system at the DDI. Every component used is available for use in your service from Storybook. The equivalent is available for designers within the template library in Figma.
         </p>
 
-        <a href="#">Read the get started guide for more information</a>
+        <a target="_blank" href="https://ui-components-ui-components-dev.os99.gov.ab.ca/?path=/docs/overview--page">Read the get started guide for more information</a>
       </GoAContainer>
 
       <GoADivider spacing="medium" />
