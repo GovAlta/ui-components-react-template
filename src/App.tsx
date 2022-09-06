@@ -13,7 +13,7 @@ export function App() {
   return (
     <GoAPage>
       <section slot="header">
-        <GoAMicrositeHeader level="alpha" version="UAT" />
+        <GoAMicrositeHeader type="alpha" version="UAT" />
         <GoAAppHeader url="/" heading="Design System">
           <a href="/login">Sign in</a>
         </GoAAppHeader>
