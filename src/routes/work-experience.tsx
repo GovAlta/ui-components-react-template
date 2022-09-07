@@ -16,8 +16,8 @@ export function WorkExperienceRoute() {
 
   function newInfo() {
     return { 
-      startDate: new Date().toLocaleDateString(),
-      endDate: "",
+      startDate: new Date(),
+      endDate: new Date(),
       hourCount: 0,
       description: "",
       monthCount: 0,
@@ -43,7 +43,7 @@ export function WorkExperienceRoute() {
     <main>
       <h2>Relevant Work Experience</h2>
 
-      <GoACircularProgress visible={showProgress} variant="fullscreen" type="infinite" size="large" message="Saving..." />
+      <GoACircularProgress visible={showProgress} variant="fullscreen" size="large" message="Saving..." />
 
       <InfoForm {...info} onSave={showSaveConfirmationModal} />
 
@@ -53,7 +53,7 @@ export function WorkExperienceRoute() {
         actions={
           <GoAButtonGroup alignment="end">
             <GoAButton type="secondary" onClick={() => setShowSaveConfirmation(false)}>Cancel</GoAButton>
-            <GoAButton type="primary" variant="danger" onClick={save}>Save</GoAButton>
+            <GoAButton type="primary" variant="destructive" onClick={save}>Save</GoAButton>
           </GoAButtonGroup>
         }
       >

@@ -5,12 +5,12 @@ import {
   GoAInputNumber,
   GoATextArea,
   GoACheckbox,
-  GoAInputText,
   GoARadioItem,
   GoARadioGroup,
   GoAButtonGroup,
   GoAButton,
   GoAFlexCol,
+  GoAInputDate,
 } from '@abgov/react-components';
 import { useReducer, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -18,8 +18,8 @@ import { dateValidator, lengthValidator, numericValidator, requiredValidator, Va
 
 
 export interface Info {
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
   monthCount: number;
   hourCount: number;
   description: string;
@@ -96,15 +96,14 @@ export const InfoForm = (props: Info & InfoActions) => {
   }
 
   return (
-    <GoAContainer headingSize="small" variant="primary">
+    <GoAContainer headingSize="small" variant="interactive">
       
       <GoAFlexRow gap="medium">
         <GoAFormItem label="Start date" error={errors.startDate}>
-          <GoAInputText 
+          <GoAInputDate
             width="100%" 
             name="startDate" 
             value={state.startDate} 
-            trailingIcon="calendar"
             error={!!errors.startDate}
             onChange={(_, value) => 
               dispatch({type: "startDate", payload: {startDate: value}}) 
@@ -114,12 +113,11 @@ export const InfoForm = (props: Info & InfoActions) => {
 
         <GoAFlexCol>
           <GoAFormItem label="End date" error={errors.endDate}>
-            <GoAInputText 
+            <GoAInputDate
               width="100%" 
               name="endDate" 
               value={state.endDate} 
               error={!!errors.endDate}
-              trailingIcon="calendar"
               disabled={state.currentlyEmployed}
               onChange={(_, value) => 
                 dispatch({type: "endDate", payload: {endDate: value}}) 
