@@ -106,7 +106,7 @@ export const InfoForm = (props: Info & InfoActions) => {
             value={state.startDate} 
             error={!!errors.startDate}
             onChange={(_, value) => 
-              dispatch({type: "startDate", payload: {startDate: value}}) 
+              dispatch({type: "startDate", payload: {startDate: new Date(value)}}) 
             } 
           />
         </GoAFormItem>
@@ -120,7 +120,7 @@ export const InfoForm = (props: Info & InfoActions) => {
               error={!!errors.endDate}
               disabled={state.currentlyEmployed}
               onChange={(_, value) => 
-                dispatch({type: "endDate", payload: {endDate: value}}) 
+                dispatch({type: "endDate", payload: {endDate: new Date(value)}}) 
               } 
             />
           </GoAFormItem>
