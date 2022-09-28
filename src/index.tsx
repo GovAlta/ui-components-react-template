@@ -2,7 +2,8 @@ import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import { WorkExperienceRoute } from './routes/work-experience';
+import { BasicFormRoute } from './routes/basic-form';
+import { BasicFormSuccessRoute } from './routes/basic-form-success';
 import { HomeRoute } from './routes/home';
 import App from './App';
 
@@ -14,7 +15,8 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="work-experience" element={<WorkExperienceRoute />} />
+          <Route path="basic-form-success" element={<BasicFormSuccessRoute />} />
+          <Route path="basic-form" element={<BasicFormRoute />} />
           <Route path="/" element={<HomeRoute />} />
         </Route>
       </Routes>

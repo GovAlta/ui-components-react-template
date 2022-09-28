@@ -1,1 +1,25 @@
-@import "@abgov/styles/styles.esm.css"
+@import "@abgov/styles/styles.esm.css";
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.space-1 {
+  margin: 0.25rem;
+}
+.space-2 {
+  padding: 0.50rem;
+}
+.space-3 {
+  padding: 0.75rem;
+}
+.space-4 {
+  padding: 1rem;
+}
+.space-5 {
+  padding: 1.50rem;
+}
