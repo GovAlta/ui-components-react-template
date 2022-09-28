@@ -7,10 +7,33 @@ export function requiredValidator(msg?: string): FieldValidator {
     if (typeof value === "number" && !isNaN(value)) {
       return ""  
     }
-    if (!value) {
-      return msg;
+    if (value) {
+      return "";
     }
-    return ""
+    return msg;
+  }
+}
+
+export function phoneNumberValidator(msg?: string): FieldValidator {
+  const regex = new RegExp(/^\+?[\d-() ]{10,18}$/);
+  return regexValidator(regex, msg || "Invalid phone number")
+}
+
+export function emailValidator(msg?: string): FieldValidator {
+  const regex = new RegExp(/^[\w+-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+  return regexValidator(regex, msg || "Invalid email address")
+}
+
+export function regexValidator(regex: RegExp, msg: string): FieldValidator {
+  return (value: unknown) => {
+    if (value === null || value === "") {
+      return "";
+    }
+    if ((value as string).match(regex)) {
+      return "";
+    }
+
+    return msg;
   }
 }
 

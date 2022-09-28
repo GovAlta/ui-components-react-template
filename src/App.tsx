@@ -4,7 +4,6 @@ import {
   GoAAppFooter,
   GoAPageBlock,
   GoAPage,
-  GoAAppFooterNavSection,
   GoAAppFooterMetaSection,
 } from '@abgov/react-components';
 import { Outlet } from 'react-router-dom';
@@ -13,45 +12,20 @@ export function App() {
   return (
     <GoAPage>
       <section slot="header">
-        <GoAMicrositeHeader type="alpha" version="UAT" />
-        <GoAAppHeader url="/" heading="Design System">
-          <a href="/login">Sign in</a>
-        </GoAAppHeader>
+        <GoAMicrositeHeader type="beta" version="React 1.0" feedbackUrl="https://github.com/GovAlta/ui-components/issues/new/choose" />
+        <GoAAppHeader url="/" heading="Design system templates" maxContentWidth="100%" />
       </section>
 
-      <GoAPageBlock width="704px">
+      <GoAPageBlock width="904px">
         <Outlet />
       </GoAPageBlock>
 
       <section slot="footer">
-        <GoAAppFooter>
-          <GoAAppFooterNavSection name="Links" maxColumnCount={2}>
-            <a href="a.html">Arts and culture</a>
-            <a href="b.html">Education and training</a>
-            <a href="c.html">Family and social supports</a>
-            <a href="d.html">Housing and community</a>
-            <a href="e.html">Life events</a>
-            <a href="f.html">Business and economy</a>
-            <a href="g.html">Emergencies and public safety</a>
-            <a href="h.html">Government</a>
-            <a href="i.html">Jobs and employment</a>
-            <a href="j.html">Moving to Alberta</a>
-          </GoAAppFooterNavSection>
-
-          <GoAAppFooterNavSection name="Media">
-            <a href="instagram.html">Instagram</a>
-            <a href="youtube.html">YouTube</a>
-            <a href="facebook.html">Facebook</a>
-            <a href="snapchat.html">Snapchat</a>
-            <a href="twitter.html">Twitter</a>
-          </GoAAppFooterNavSection>
-
+        <GoAAppFooter maxContentWidth="100%">
           <GoAAppFooterMetaSection>
-            <a href="contact.html">Contact Us</a>
-            <a href="support.html">Support</a>
-            <a href="hours.html">Hours</a>
-            <a href="about.html">About Us</a>
-            <a href="careers.html">Careers</a>
+            <a href="https://goa-dio.slack.com/archives/C02PLLT9HQ9">Get help</a>
+            <a href="https://goa-dio.atlassian.net/wiki/spaces/DS/pages/2342813697/Design+System+Drop-in+hours">Drop-in Hours</a>
+            <a href="https://github.com/GovAlta/ui-components/issues/new/choose">Contribute</a>
           </GoAAppFooterMetaSection>
         </GoAAppFooter>
       </section>
