@@ -126,7 +126,7 @@ export function BasicFormRoute() {
         <GoAFormItem 
           label="This is text input" 
           error={errors.textInput}
-          optional={true}
+          requirement="optional"
           helpText="You can add helper text to provide additional context to the user."
         >
           <GoAInput
@@ -197,7 +197,7 @@ export function BasicFormRoute() {
       </GoAFlexRow>
 
       {state.moreInput &&
-        <GoAContainer type="interactive" headingSize="large">
+        <GoAContainer type="interactive" accent="thick">
           <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
             <h3>This is an interactive container</h3>
             <GoAButton onClick={showSaveConfirmationModal} type="tertiary">Remove container</GoAButton>
