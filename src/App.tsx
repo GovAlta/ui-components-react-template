@@ -3,14 +3,14 @@ import {
   GoAMicrositeHeader,
   GoAAppFooter,
   GoAPageBlock,
-  GoAPage,
+  GoAOneColumnLayout,
   GoAAppFooterMetaSection,
 } from '@abgov/react-components';
 import { Outlet } from 'react-router-dom';
 
 export function App() {
   return (
-    <GoAPage>
+    <GoAOneColumnLayout>
       <section slot="header">
         <GoAMicrositeHeader type="beta" version="React 1.0" feedbackUrl="https://github.com/GovAlta/ui-components/issues/new/choose" />
         <GoAAppHeader url="/" heading="Design system templates" maxContentWidth="100%" />
@@ -29,7 +29,7 @@ export function App() {
           </GoAAppFooterMetaSection>
         </GoAAppFooter>
       </section>
-    </GoAPage>
+    </GoAOneColumnLayout>
   );
 }
 

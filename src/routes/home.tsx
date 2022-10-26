@@ -12,7 +12,7 @@ export const HomeRoute = () => {
         A showcase of the design system components, pages, and other resources for service teams.  
       </h3>
 
-      <GoAContainer headingSize="none">
+      <GoAContainer>
         <h3>Get started</h3>
         <p>
           This project is a showcase of the design system at the DDI. Every component used is available for use in your service from Storybook. The equivalent is available for designers within the template library in Figma.
@@ -57,7 +57,7 @@ export const HomeRoute = () => {
 
       <GoADivider spacing="large" />
 
-      <GoAContainer headingSize="none" colored={true}>
+      <GoAContainer type="non-interactive">
         <h2>Design system support</h2> 
         <a href="https://goa-dio.slack.com/archives/C02PLLT9HQ9">Get in touch with the design system team on Slack #design-system-support</a>
       </GoAContainer>

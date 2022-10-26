@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@abgov/styles": "alpha",
-    "@abgov/web-components": "alpha",
     "@abgov/react-components": "alpha",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
