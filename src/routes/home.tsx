@@ -1,4 +1,4 @@
-import { GoABadge, GoAButton, GoAChip, GoAContainer, GoADivider, GoAFlexRow } from '@abgov/react-components'
+import { GoABadge, GoAContainer, GoADivider, GoAGrid } from '@abgov/react-components'
 import { Link, useNavigate } from 'react-router-dom'
 
 export const HomeRoute = () => {
@@ -21,9 +21,9 @@ export const HomeRoute = () => {
         <a target="_blank" href="https://ui-components-ui-components-dev.os99.gov.ab.ca/?path=/docs/overview--page">Read the get started guide for more information</a>
       </GoAContainer>
 
-      <GoADivider spacing="medium" />
+      <GoADivider mt="m" mb="m" />
 
-      <GoAFlexRow gap="medium">
+      <GoAGrid minChildWidth="30ch">
         <section>
           <GoABadge type="success" content="New" />
           <h2 className="mt-1"><Link to="/basic-form">Basic form</Link></h2>
@@ -37,9 +37,9 @@ export const HomeRoute = () => {
           <h2 className="mt-1">Complex tables</h2>
           <p>This page is a showcase of the card component to try out the live component with mock data within a service.</p>
         </section>
-      </GoAFlexRow>
+      </GoAGrid>
 
-      <GoAFlexRow gap="medium">
+      <GoAGrid minChildWidth="30ch">
         <section>
           <GoABadge type="information" content="Coming soon" />
           <h2 className="mt-1">Form stepper</h2>
@@ -53,9 +53,9 @@ export const HomeRoute = () => {
           </h2>
           <p>Let us know what template you want to see and we will add it here.</p>
         </section>
-      </GoAFlexRow>
+      </GoAGrid>
 
-      <GoADivider spacing="large" />
+      <GoADivider mt="l" mb="l" />
 
       <GoAContainer type="non-interactive">
         <h2>Design system support</h2> 

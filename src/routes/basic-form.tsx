@@ -3,7 +3,6 @@ import {
   GoAButtonGroup,
   GoAContainer,
   GoACheckbox,
-  GoAFlexRow,
   GoAFormItem,
   GoAInput,
   GoAInputEmail,
@@ -13,6 +12,7 @@ import {
   GoARadioItem,
   GoAModal,
   GoACircularProgress,
+  GoAGrid,
 } from '@abgov/react-components';
 import { useNavigate } from 'react-router-dom';
 import { useReducer, useState } from 'react';
@@ -122,7 +122,7 @@ export function BasicFormRoute() {
 
       <GoACircularProgress visible={showProgress} variant="fullscreen" size="large" message="Processing your form..." />
 
-      <GoAFlexRow>
+      <GoAGrid minChildWidth="30ch">
         <GoAFormItem 
           label="This is text input" 
           error={errors.textInput}
@@ -139,9 +139,9 @@ export function BasicFormRoute() {
             } 
           />
         </GoAFormItem>
-      </GoAFlexRow>
+      </GoAGrid>
 
-      <GoAFlexRow gap="medium">
+      <GoAGrid minChildWidth="30ch">
         <GoAFormItem label="Email input" error={errors.email}>
           <GoAInputEmail
             width="100%" 
@@ -165,9 +165,9 @@ export function BasicFormRoute() {
             } 
           />    
         </GoAFormItem>
-      </GoAFlexRow>
+      </GoAGrid>
 
-      <GoAFlexRow gap="medium">
+      <GoAGrid minChildWidth="30ch">
         <GoAFormItem label="Text area" error={errors.textarea} helpText="The text area can count the number of characters a user inputs.">
           <GoATextArea 
             width="100%" 
@@ -181,9 +181,9 @@ export function BasicFormRoute() {
             } 
           />
         </GoAFormItem>
-      </GoAFlexRow>
+      </GoAGrid>
 
-      <GoAFlexRow gap="medium">
+      <GoAGrid minChildWidth="30ch">
         <GoAFormItem label="Do you want to show another type of input?">
           <GoARadioGroup 
             name="moreInput"
@@ -194,7 +194,7 @@ export function BasicFormRoute() {
             <GoARadioItem key="no" name="moreInput" value="no" label="No" />
           </GoARadioGroup>
         </GoAFormItem>
-      </GoAFlexRow>
+      </GoAGrid>
 
       {state.moreInput &&
         <GoAContainer type="interactive" accent="thick">
