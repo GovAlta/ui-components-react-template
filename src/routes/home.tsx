@@ -18,7 +18,7 @@ export const HomeRoute = () => {
           This project is a showcase of the design system at the DDI. Every component used is available for use in your service from Storybook. The equivalent is available for designers within the template library in Figma.
         </p>
 
-        <a target="_blank" href="https://ui-components-ui-components-dev.os99.gov.ab.ca/?path=/docs/overview--page">Read the get started guide for more information</a>
+        <a target="_blank" href="https://ui-components.alberta.ca">Read the get started guide for more information</a>
       </GoAContainer>
 
       <GoADivider mt="m" mb="m" />
