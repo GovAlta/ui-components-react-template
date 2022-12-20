@@ -8,7 +8,7 @@ To get started with React click the `Use this template` button.
 
 ## Storybook docs
 
-Documentation for all available components can be viewed at [Storybook: React UI Components](https://ui-components-ui-components-dev.os99.gov.ab.ca/)
+Documentation for all available components can be viewed at [Storybook: React UI Components](https://ui-components.alberta.ca)
 
 
 ## Bugs
