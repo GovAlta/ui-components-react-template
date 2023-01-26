@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@abgov/styles": "^1.1.0",
-    "@abgov/react-components": "^4.2.0",
+    "@abgov/web-components": "^1.5.0",
+    "@abgov/react-components": "^4.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"
