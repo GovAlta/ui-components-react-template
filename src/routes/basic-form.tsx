@@ -12,7 +12,7 @@ import {
   GoARadioItem,
   GoAModal,
   GoACircularProgress,
-  GoAGrid,
+  GoABlock,
 } from '@abgov/react-components';
 import { useNavigate } from 'react-router-dom';
 import { useReducer, useState } from 'react';
@@ -86,31 +86,41 @@ export function BasicFormRoute() {
     setShowSaveConfirmation(true);
   }
 
-  function validate(): boolean {
+  function validate(): "valid" | "invalid" {
     const errors: Record<string, string> = {}
+    errors.text = TextareaValidator.validate(state.text)
     errors.textarea = TextareaValidator.validate(state.textarea)
     errors.email = EmailValidator.validate(state.email)
     errors.phone = PhoneValidator.validate(state.phone)
     setErrors(errors);
 
     const hasErrors = 
-      !!errors.textarea
+      errors.text
+      || errors.textarea
       || errors.email
       || errors.phone;
-    return !hasErrors;
+       
+    return hasErrors ? "invalid" : "valid";
   }
 
   function save() {
-    if (!validate()) {
+    if (validate() === "invalid") {
       return;
     }
 
     setShowSaveConfirmation(false);
     setShowProgress(true);
+
+    // first timeout simulates request latency
     setTimeout(() => {
-      setShowProgress(false)
-      navigate("/basic-form-success")
-    }, 2000);
+      setShowProgress(false);
+
+      // second time out is *required* to prevent the window scrollbar from being hidden
+      // after redirect
+      setTimeout(() => {
+        navigate("/basic-form-success")
+      }, 0);
+    }, 2000)
   }
 
   return (
@@ -122,16 +132,16 @@ export function BasicFormRoute() {
 
       <GoACircularProgress visible={showProgress} variant="fullscreen" size="large" message="Processing your form..." />
 
-      <GoAGrid minChildWidth="30ch">
+      <GoABlock>
         <GoAFormItem 
           label="This is text input" 
-          error={errors.textInput}
-          requirement="optional"
+          error={errors.text}
+          requirement="required"
           helpText="You can add helper text to provide additional context to the user."
         >
           <GoAInput
             width="100%" 
-            name="textInput" 
+            name="text" 
             value={state.text} 
             error={!!errors.text}
             onChange={(_, value) => 
@@ -139,9 +149,9 @@ export function BasicFormRoute() {
             } 
           />
         </GoAFormItem>
-      </GoAGrid>
+      </GoABlock>
 
-      <GoAGrid minChildWidth="30ch">
+      <GoABlock gap="m">
         <GoAFormItem label="Email input" error={errors.email}>
           <GoAInputEmail
             width="100%" 
@@ -165,9 +175,9 @@ export function BasicFormRoute() {
             } 
           />    
         </GoAFormItem>
-      </GoAGrid>
+      </GoABlock>
 
-      <GoAGrid minChildWidth="30ch">
+      <GoABlock gap="m">
         <GoAFormItem label="Text area" error={errors.textarea} helpText="The text area can count the number of characters a user inputs.">
           <GoATextArea 
             width="100%" 
@@ -181,9 +191,9 @@ export function BasicFormRoute() {
             } 
           />
         </GoAFormItem>
-      </GoAGrid>
+      </GoABlock>
 
-      <GoAGrid minChildWidth="30ch">
+      <GoABlock gap="m">
         <GoAFormItem label="Do you want to show another type of input?">
           <GoARadioGroup 
             name="moreInput"
@@ -194,14 +204,18 @@ export function BasicFormRoute() {
             <GoARadioItem key="no" name="moreInput" value="no" label="No" />
           </GoARadioGroup>
         </GoAFormItem>
-      </GoAGrid>
+      </GoABlock>
 
       {state.moreInput &&
-        <GoAContainer type="interactive" accent="thick">
-          <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
-            <h3>This is an interactive container</h3>
-            <GoAButton onClick={showSaveConfirmationModal} type="tertiary">Remove container</GoAButton>
-          </div>
+        <GoAContainer 
+          type="interactive"
+          title={
+            <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
+              <h3>This is an interactive container</h3>
+              <GoAButton onClick={showSaveConfirmationModal} type="tertiary">Remove container</GoAButton>
+            </div>
+          }          
+        >
           <p>
             You can use a container to group related content and tasks. An interactive container indicates that there is content within actionable, and is denoted by the teal colour band.
           </p>
@@ -226,14 +240,10 @@ export function BasicFormRoute() {
         </GoAContainer>
       }
 
-      <div className="space-3"></div>
-
-      <GoAButtonGroup alignment="start">
+      <GoAButtonGroup alignment="start" mt="s" mb="3xl">
         <GoAButton type="secondary" onClick={() => navigate("/") }>Cancel form</GoAButton>
         <GoAButton type="primary" onClick={save}>Save and continue</GoAButton>
       </GoAButtonGroup>
-
-      <div className="space-5"></div>
 
       <GoAModal 
         heading="Are you sure you want to remove this container?"

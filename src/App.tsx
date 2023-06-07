@@ -5,8 +5,8 @@ import {
   GoAPageBlock,
   GoAAppFooterMetaSection,
   GoAOneColumnLayout,
-} from "@abgov/react-components";
-import { Outlet } from "react-router-dom";
+} from '@abgov/react-components';
+import { Outlet } from 'react-router-dom';
 
 export function App() {
   return (
