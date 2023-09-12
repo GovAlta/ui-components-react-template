@@ -14,9 +14,8 @@ To use the templates, follow these steps:
 6. Clone the repo onto your machine
 7. Using a terminal of some kind, go into the directory you created and run the following commands (in order):
    1. `npm i`
-   2. `npm upgrade`
-   3. `npm run build`
-   4. `npm run dev`
+   2. `npm upgrade --save`
+   3. `npm run dev`
 8. Go to the listed port number of your localhost
 
 ---
