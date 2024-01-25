@@ -184,8 +184,8 @@ export function BasicFormRoute() {
             name="textarea" 
             value={state.textarea} 
             error={!!errors.textarea}
-            showCounter={true} 
-            maxCharCount={200}
+            countBy="character"
+            maxCount={200}
             onChange={(_, value) => 
               dispatch({ type: "textarea", payload: {"textarea": value} }) 
             } 
