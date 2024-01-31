@@ -77,6 +77,7 @@ interface NumericValidatorOptions {
   min?: number;
   max?: number;
 }
+
 export function numericValidator({invalidTypeMsg, minMsg, maxMsg, min = -Number.MAX_VALUE, max = Number.MAX_VALUE}: NumericValidatorOptions): FieldValidator {
   return (value: unknown) => {
     let _value: number = Number.MAX_VALUE;
@@ -93,10 +94,10 @@ export function numericValidator({invalidTypeMsg, minMsg, maxMsg, min = -Number.
     }
 
     if (_value > max) {
-      return maxMsg || `Must be less than ${max}`;
+      return maxMsg || `Must be less than or equal to ${max}`;
     }
     if (_value < min) {
-      return minMsg || `Must be greater than ${min}`;
+      return minMsg || `Must be greater than or equal to ${min}`;
     }
 
     return ""
