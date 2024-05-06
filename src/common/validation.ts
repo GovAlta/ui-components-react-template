@@ -5,7 +5,7 @@ export function requiredValidator(msg?: string): FieldValidator {
     msg = msg || "Required";
 
     if (typeof value === "number" && !isNaN(value)) {
-      return ""  
+      return ""
     }
     if (value) {
       return "";
@@ -44,7 +44,7 @@ interface DateValidatorOptions {
   start?: Date;
   end?: Date;
 }
-export function dateValidator({invalidMsg, startMsg, endMsg, start, end}: DateValidatorOptions): FieldValidator {
+export function dateValidator({ invalidMsg, startMsg, endMsg, start, end }: DateValidatorOptions): FieldValidator {
   return (date: unknown) => {
     let _date: Date = new Date(0);
 
@@ -77,8 +77,7 @@ interface NumericValidatorOptions {
   min?: number;
   max?: number;
 }
-
-export function numericValidator({invalidTypeMsg, minMsg, maxMsg, min = -Number.MAX_VALUE, max = Number.MAX_VALUE}: NumericValidatorOptions): FieldValidator {
+export function numericValidator({ invalidTypeMsg, minMsg, maxMsg, min = -Number.MAX_VALUE, max = Number.MAX_VALUE }: NumericValidatorOptions): FieldValidator {
   return (value: unknown) => {
     let _value: number = Number.MAX_VALUE;
 
@@ -111,8 +110,8 @@ interface LengthValidatorOptions {
   max?: number;
   min?: number;
 }
-export function lengthValidator({invalidTypeMsg, minMsg, maxMsg, min = -Number.MAX_VALUE, max = Number.MAX_VALUE}: LengthValidatorOptions): FieldValidator {
-  return (value: unknown) => { 
+export function lengthValidator({ invalidTypeMsg, minMsg, maxMsg, min = -Number.MAX_VALUE, max = Number.MAX_VALUE }: LengthValidatorOptions): FieldValidator {
+  return (value: unknown) => {
     if (typeof value !== "string") {
       return invalidTypeMsg || "Invalid type";
     }
@@ -136,7 +135,7 @@ export class Validator {
   constructor(...validators: FieldValidator[]) {
     this.validators = validators;
   }
-  
+
   validate(val: unknown): string {
     for (const validate of this.validators) {
       const msg = validate(val)
