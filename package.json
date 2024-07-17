@@ -11,8 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@abgov/react-components": "^4.18.2",
-    "@abgov/web-components": "^1.19.1",
+    "@abgov/react-components": "^4.21.1",
+    "@abgov/web-components": "^1.22.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2"
