@@ -2,6 +2,8 @@ import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import "@abgov/web-components";
+
 import { BasicFormRoute } from './routes/basic-form';
 import { BasicFormSuccessRoute } from './routes/basic-form-success';
 import { HomeRoute } from './routes/home';
