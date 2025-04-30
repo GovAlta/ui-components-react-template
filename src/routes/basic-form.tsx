@@ -1,22 +1,17 @@
 import {
-  GoAButton,
-  GoAButtonGroup,
-  GoAContainer,
-  GoACheckbox,
-  GoAFormItem,
-  GoAInput,
-  GoAInputEmail,
-  GoAInputTel,
-  GoATextArea,
-  GoARadioGroup,
-  GoARadioItem,
-  GoAModal,
-  GoACircularProgress,
-  GoABlock,
+  GoabCircularProgress,
+  GoabBlock, GoabFormItem,
+  GoabInput,
+  GoabInputEmail, GoabInputTel,
+  GoabTextArea,
+  GoabRadioGroup,
+  GoabRadioItem,
+  GoabContainer, GoabButton, GoabCheckbox, GoabButtonGroup, GoabModal,
 } from '@abgov/react-components';
 import { useNavigate } from 'react-router-dom';
 import { useReducer, useState } from 'react';
 import { lengthValidator, requiredValidator, emailValidator, phoneNumberValidator, Validator } from '../common/validation';
+import {GoabCheckboxOnChangeDetail, GoabInputOnChangeDetail} from "@abgov/ui-components-common";
 
 export interface InfoState {
   text: string;
@@ -130,89 +125,89 @@ export function BasicFormRoute() {
         Below is a basic form built from the component library for you to try out and use as a starting point for your service.
       </h3>
 
-      <GoACircularProgress visible={showProgress} variant="fullscreen" size="large" message="Processing your form..." />
+      <GoabCircularProgress visible={showProgress} variant="fullscreen" size="large" message="Processing your form..." />
 
-      <GoABlock>
-        <GoAFormItem 
+      <GoabBlock>
+        <GoabFormItem
           label="This is text input" 
           error={errors.text}
           requirement="required"
           helpText="You can add helper text to provide additional context to the user."
         >
-          <GoAInput
+          <GoabInput
             width="100%" 
             name="text" 
             value={state.text} 
             error={!!errors.text}
-            onChange={(_, value) => 
-              dispatch({type: "text", payload: {text: value}}) 
+            onChange={(detail: GoabInputOnChangeDetail) =>
+              dispatch({type: "text", payload: {text: detail.value}})
             } 
           />
-        </GoAFormItem>
-      </GoABlock>
+        </GoabFormItem>
+      </GoabBlock>
 
-      <GoABlock gap="m">
-        <GoAFormItem label="Email input" error={errors.email}>
-          <GoAInputEmail
+      <GoabBlock gap="m">
+        <GoabFormItem label="Email input" error={errors.email}>
+          <GoabInputEmail
             width="100%" 
             name="email" 
             value={state.email} 
             error={!!errors.email}
-            onChange={(_, value) => 
-              dispatch({type: "email", payload: { email: value }}) 
+            onChange={(detail: GoabInputOnChangeDetail) =>
+              dispatch({type: "email", payload: { email: detail.value}})
             } 
           />    
-        </GoAFormItem>
+        </GoabFormItem>
 
-        <GoAFormItem label="Phone number input" error={errors.phone}>
-          <GoAInputTel
+        <GoabFormItem label="Phone number input" error={errors.phone}>
+          <GoabInputTel
             width="100%" 
             name="phone" 
             value={state.phone} 
             error={!!errors.phone}
-            onChange={(_, value) => 
-              dispatch({type: "phone", payload: {phone: value}}) 
+            onChange={(detail: GoabInputOnChangeDetail) =>
+              dispatch({type: "phone", payload: {phone: detail.value}})
             } 
           />    
-        </GoAFormItem>
-      </GoABlock>
+        </GoabFormItem>
+      </GoabBlock>
 
-      <GoABlock gap="m">
-        <GoAFormItem label="Text area" error={errors.textarea} helpText="The text area can count the number of characters a user inputs.">
-          <GoATextArea 
+      <GoabBlock gap="m">
+        <GoabFormItem label="Text area" error={errors.textarea} helpText="The text area can count the number of characters a user inputs.">
+          <GoabTextArea
             width="100%" 
             name="textarea" 
             value={state.textarea} 
             error={!!errors.textarea}
             countBy="character"
             maxCount={200}
-            onChange={(_, value) => 
-              dispatch({ type: "textarea", payload: {"textarea": value} }) 
+            onChange={(detail: GoabInputOnChangeDetail) =>
+              dispatch({ type: "textarea", payload: {"textarea": detail.value} })
             } 
           />
-        </GoAFormItem>
-      </GoABlock>
+        </GoabFormItem>
+      </GoabBlock>
 
-      <GoABlock gap="m">
-        <GoAFormItem label="Do you want to show another type of input?">
-          <GoARadioGroup 
+      <GoabBlock gap="m">
+        <GoabFormItem label="Do you want to show another type of input?">
+          <GoabRadioGroup
             name="moreInput"
             value={state.moreInput ? "yes" : "no"}
-            onChange={(_, value) => dispatch({ type: "moreInput", payload: {"moreInput": value === "yes"} }) } 
+            onChange={(detail: GoabInputOnChangeDetail) => dispatch({ type: "moreInput", payload: {"moreInput": detail.value === "yes"} }) }
           >
-            <GoARadioItem key="yes" name="moreInput" value="yes" label="Yes" />
-            <GoARadioItem key="no" name="moreInput" value="no" label="No" />
-          </GoARadioGroup>
-        </GoAFormItem>
-      </GoABlock>
+            <GoabRadioItem key="yes" name="moreInput" value="yes" label="Yes" />
+            <GoabRadioItem key="no" name="moreInput" value="no" label="No" />
+          </GoabRadioGroup>
+        </GoabFormItem>
+      </GoabBlock>
 
       {state.moreInput &&
-        <GoAContainer 
+        <GoabContainer
           type="interactive"
           title={
             <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
               <h3>This is an interactive container</h3>
-              <GoAButton onClick={showSaveConfirmationModal} type="tertiary">Remove container</GoAButton>
+              <GoabButton onClick={showSaveConfirmationModal} type="tertiary">Remove container</GoabButton>
             </div>
           }          
         >
@@ -220,46 +215,46 @@ export function BasicFormRoute() {
             You can use a container to group related content and tasks. An interactive container indicates that there is content within actionable, and is denoted by the teal colour band.
           </p>
 
-          <GoAFormItem 
+          <GoabFormItem
             label="Do you want to show another type of input?"
             helpText="You can select multiple items on this list."
           >
             {Items.map(item => 
-              <GoACheckbox 
+              <GoabCheckbox
                 key={item}
                 name="items"
                 value={item}
                 checked={state.items.includes(item)}
-                onChange={(_, checked, value) => {
-                  dispatch({type: "items", payload: { item: value, checked }})
+                onChange={(detail: GoabCheckboxOnChangeDetail) => {
+                  dispatch({type: "items", payload: { item: detail.value, checked: detail.checked }})
                 }}
                 text={item}
               />
             )}
-          </GoAFormItem>
-        </GoAContainer>
+          </GoabFormItem>
+        </GoabContainer>
       }
 
-      <GoAButtonGroup alignment="start" mt="s" mb="3xl">
-        <GoAButton type="secondary" onClick={() => navigate("/") }>Cancel form</GoAButton>
-        <GoAButton type="primary" onClick={save}>Save and continue</GoAButton>
-      </GoAButtonGroup>
+      <GoabButtonGroup alignment="start" mt="s" mb="3xl">
+        <GoabButton type="secondary" onClick={() => navigate("/") }>Cancel form</GoabButton>
+        <GoabButton type="primary" onClick={save}>Save and continue</GoabButton>
+      </GoabButtonGroup>
 
-      <GoAModal 
+      <GoabModal
         heading="Are you sure you want to remove this container?"
         open={showSaveConfirmation} 
         actions={
-          <GoAButtonGroup alignment="end">
-            <GoAButton type="secondary" onClick={() => setShowSaveConfirmation(false)}>Cancel</GoAButton>
-            <GoAButton type="primary" variant="destructive" onClick={() => {
+          <GoabButtonGroup alignment="end">
+            <GoabButton type="secondary" onClick={() => setShowSaveConfirmation(false)}>Cancel</GoabButton>
+            <GoabButton type="primary" variant="destructive" onClick={() => {
               setShowSaveConfirmation(false);
               dispatch({ type: "removeContainer", payload: {} });
-            }}>Remove container</GoAButton>
-          </GoAButtonGroup>
+            }}>Remove container</GoabButton>
+          </GoabButtonGroup>
         }
       >
         This is a modal that confirms with the user before preforming a destructive action that they will not be able to undo.
-      </GoAModal>
+      </GoabModal>
     </main>
   )
 }
