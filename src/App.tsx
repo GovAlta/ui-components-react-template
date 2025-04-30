@@ -1,36 +1,36 @@
 import {
-  GoAAppHeader,
-  GoAMicrositeHeader,
-  GoAAppFooter,
-  GoAPageBlock,
-  GoAAppFooterMetaSection,
-  GoAOneColumnLayout,
+  GoabAppHeader,
+  GoabMicrositeHeader,
+  GoabAppFooter,
+  GoabPageBlock,
+  GoabAppFooterMetaSection,
+  GoabOneColumnLayout,
 } from '@abgov/react-components';
 import { Outlet } from 'react-router-dom';
 
 export function App() {
   return (
-    <GoAOneColumnLayout>
+    <GoabOneColumnLayout>
       <section slot="header">
-        <GoAMicrositeHeader
+        <GoabMicrositeHeader
           type="beta"
           version="React 1.0"
           feedbackUrl="https://github.com/GovAlta/ui-components/issues/new/choose"
         />
-        <GoAAppHeader
+        <GoabAppHeader
           url="/"
           heading="Design system templates"
           maxContentWidth="100%"
         />
       </section>
 
-      <GoAPageBlock width="904px">
+      <GoabPageBlock width="904px">
         <Outlet />
-      </GoAPageBlock>
+      </GoabPageBlock>
 
       <section slot="footer">
-        <GoAAppFooter maxContentWidth="100%">
-          <GoAAppFooterMetaSection>
+        <GoabAppFooter maxContentWidth="100%">
+          <GoabAppFooterMetaSection>
             <a href="https://goa-dio.slack.com/archives/C02PLLT9HQ9">
               Get help
             </a>
@@ -40,10 +40,10 @@ export function App() {
             <a href="https://github.com/GovAlta/ui-components/issues/new/choose">
               Contribute
             </a>
-          </GoAAppFooterMetaSection>
-        </GoAAppFooter>
+          </GoabAppFooterMetaSection>
+        </GoabAppFooter>
       </section>
-    </GoAOneColumnLayout>
+    </GoabOneColumnLayout>
   );
 }
 
